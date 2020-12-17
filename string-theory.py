@@ -22,11 +22,13 @@ def is_isogram(text):
 
 
 def is_pangram(text):
-    """
-    >>> is_pangram('The quick brown fox jumps over the lazy dog')
-    True
-    """
-    pass
+    is_pangram = False
+    converted_text = ''.join([i for i in text if i.isalpha()]).upper()
+    letters_in_text = set(converted_text.upper())
+    letters_in_alphabet = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'}
+    if letters_in_text == letters_in_alphabet:
+        is_pangram = True
+    return is_pangram
 
 
 def is_anagram(text1, text2):
@@ -46,10 +48,8 @@ def is_blanagram(text1, text2):
 
 
 if __name__ == "__main__":
-    print(is_palindrome("indul a gorog aludni"))
-    print(is_palindrome("Mr. Owl ate my metal worm"))
-    print(is_palindrome("op"))
-    print(is_isogram('un3cop2yrighta3bles'))
+    print(is_pangram('The q1uick brown fox jumps2 over the9lazy dog'))
+    print(is_pangram('aSphitnx of black quartttttz, judge my votw'))
 
 
 
