@@ -4,15 +4,21 @@ def is_palindrome(text):
     for i in range(len(converted_text)//2):
         if converted_text[i] != converted_text[len(converted_text)-1-i]:
             is_palindrome = False
+            break
     return is_palindrome
 
 
 def is_isogram(text):
-    """
-    >>> is_isogram('uncopyrightables')
-    True
-    """
-    pass
+    is_isogram = True
+    converted_text = ''.join([i for i in text if i.isalpha()]).upper()
+    appeared_letters = set()
+    for letter in converted_text:
+        if letter.upper() in appeared_letters:
+            is_isogram = False
+            break
+        else:
+            appeared_letters.add(letter.upper())
+    return is_isogram
 
 
 def is_pangram(text):
@@ -42,8 +48,8 @@ def is_blanagram(text1, text2):
 if __name__ == "__main__":
     print(is_palindrome("indul a gorog aludni"))
     print(is_palindrome("Mr. Owl ate my metal worm"))
-    print(is_palindrome("Eva, can I see bees in a cave?"))
-    print(is_palindrome("ba12b"))
+    print(is_palindrome("op"))
+    print(is_isogram('un3cop2yrighta3bles'))
 
 
 
