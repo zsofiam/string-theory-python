@@ -1,11 +1,10 @@
 def is_palindrome(text):
-    """
-    >>> is_palindrome('Mr. Owl ate my metal worm')
-    True
-    >>> is_palindrome('Eva, can I see bees in a cave?')
-    True
-    """
-    pass
+    is_palindrome = True
+    converted_text = ''.join([i for i in text if i.isalpha()]).upper()
+    for i in range(len(converted_text)//2):
+        if converted_text[i] != converted_text[len(converted_text)-1-i]:
+            is_palindrome = False
+    return is_palindrome
 
 
 def is_isogram(text):
@@ -38,3 +37,13 @@ def is_blanagram(text1, text2):
     True
     """
     pass
+
+
+if __name__ == "__main__":
+    print(is_palindrome("indul a gorog aludni"))
+    print(is_palindrome("Mr. Owl ate my metal worm"))
+    print(is_palindrome("Eva, can I see bees in a cave?"))
+    print(is_palindrome("ba12b"))
+
+
+
