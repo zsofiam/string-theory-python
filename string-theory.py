@@ -32,24 +32,33 @@ def is_pangram(text):
 
 
 def is_anagram(text1, text2):
-    """
-    >>> is_anagram('Justin Timberlake', "I'm a jerk but listen")
-    True
-    """
-    pass
+    is_anagram = False
+    dictionary1 = convert_text_to_dictionary(text1)
+    dictionary2 = convert_text_to_dictionary(text2)
+    if dictionary1 == dictionary2:
+        is_anagram = True
+    return is_anagram
+
+
+def convert_text_to_dictionary(text):
+    converted_text = ''.join([i for i in text if i.isalpha()]).upper()
+    dictionary_of_letters = {}
+    for char in converted_text:
+        if char in dictionary_of_letters:
+            dictionary_of_letters[char] += 1
+        else:
+            dictionary_of_letters[char] = 1
+    return dictionary_of_letters
 
 
 def is_blanagram(text1, text2):
     """
-    >>> is_blanagram('Justin Timberlake', "I'm a berk but listen")
-    True
     """
     pass
 
 
 if __name__ == "__main__":
-    print(is_pangram('The q1uick brown fox jumps2 over the9lazy dog'))
-    print(is_pangram('aSphitnx of black quartttttz, judge my votw'))
+    print(is_anagram('Justin Timberlake', "I'm a jerk but listen"))
 
 
 
