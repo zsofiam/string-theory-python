@@ -52,13 +52,28 @@ def convert_text_to_dictionary(text):
 
 
 def is_blanagram(text1, text2):
-    """
-    """
-    pass
+    is_blanagram = False
+    dictionary1 = convert_text_to_dictionary(text1)
+    dictionary2 = convert_text_to_dictionary(text2)
+    count_miss_1 = 0
+    count_miss_2 = 0
+    value_of_miss_1 = 0
+    value_of_miss_2 = 0
+    for letter in dictionary1:
+        if letter not in dictionary2:
+            count_miss_1 += 1
+            value_of_miss_1 = dictionary1[letter]
+    for letter in dictionary2:
+        if letter not in dictionary1:
+            count_miss_2 += 1
+            value_of_miss_2 = dictionary2[letter]
+    if count_miss_1 == count_miss_2 == 1 and value_of_miss_1 == value_of_miss_2:
+        is_blanagram = True
+    return is_blanagram
 
 
 if __name__ == "__main__":
-    print(is_anagram('Justin Timberlake', "I'm a jerk but listen"))
+    print(is_blanagram('chipotle', "poetical"))
 
 
 
